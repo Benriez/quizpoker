@@ -34,6 +34,10 @@ class S0State extends MyState {
   S0State() : super(0, 0, 0);
 }
 
+class STState extends MyState {
+  STState() : super(0, 0, 0);
+}
+
 class EState extends S0State {
   EState() : super();
 }
@@ -43,20 +47,24 @@ class EState extends S0State {
 class MyCubit extends Cubit<MyState> {
   MyCubit() : super(S0State());
 
-  void bStateTransition(int i, int j, int k){
+  void bStateTransition(int i, int j, int k) {
     if (i < 3) {
-      emit(BState(i+1, j, k));
-    } else if (j <2 ){
-      emit(HState(i, j, k+1));
-    }
-    else emit(EState());
+      emit(BState(i + 1, j, k));
+    } else if (j < 2) {
+      emit(HState(i, j, k + 1));
+    } else
+      emit(EState());
   }
 
-  void hStateTransation(int i, int j, int k){
-    emit(BState(i , j+1, k));
+  void hStateTransation(int i, int j, int k) {
+    emit(BState(i, j + 1, k));
   }
 
-  void eStateTransition(){
+  stbStateTransition() {
+    emit(STState());
+  }
+
+  void eStateTransition() {
     emit(S0State());
   }
 
