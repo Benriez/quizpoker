@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizduell/question/question_model.dart';
 
 import 'question/question_view.dart';
-
+import '../start_to_bet/start_to_bet_view.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -98,7 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            QuestionCard(),
+            // QuestionCard(),
+            StartToBetPopup()
           ],
         ),
       ),
